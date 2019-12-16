@@ -6,7 +6,10 @@ $(document).ready(function () {
 function registerSearch() {
     $("#search").submit(function (ev) {
         event.preventDefault();
-        $.get($(this).attr('action'), {q: $("#q").val()}, function (data) {
+        $.get($(this).attr('action'), {q: $("#q").val(),
+                                       n: $("#n").val(),
+                                       p: $("#p").val(),
+                                       l: $("#l").val()}, function (data) {
             $("#resultsBlock").html(Mustache.render(template, data));
         });
     });
